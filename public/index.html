@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>Turbo To-Do Enhanced</title><link href="style.css" rel="stylesheet"></head>
+<body>
+<div class="bg"></div>
+<header class="top"><h1>Turbo To-Do</h1><p class="subtitle">Organize. Remind. Conquer.</p></header>
+<main class="wrap">
+<section class="card new">
+  <form id="create-form" class="grid-form">
+    <h2>New Task</h2>
+    <input id="title" placeholder="What needs doing?" required>
+    <textarea id="notes" placeholder="Notes (optional)"></textarea>
+    <select id="priority"><option value="low">Low</option><option value="medium" selected>Medium</option><option value="high">High</option></select>
+    <input id="due_date" type="date">
+    <input id="due_time" type="time">
+    <input id="tags" placeholder="tags, comma,separated">
+    <select id="remind"><option value="0">No reminder</option><option value="0">At time</option><option value="5">5 min before</option><option value="10">10 min before</option><option value="30">30 min before</option><option value="60">1 hour before</option></select>
+    <div></div>
+    <button class="btn primary" type="submit">Add Task</button>
+  </form>
+</section>
+<section class="card controls">
+  <div class="row">
+    <input id="search" placeholder="Search title, notes, tags">
+    <select id="status"><option value="all">All</option><option value="open">Open</option><option value="completed">Completed</option></select>
+    <select id="prio"><option value="all">Any priority</option><option value="low">Low</option><option value="medium">Medium</option><option value="high">High</option></select>
+    <select id="sort"><option value="created_desc">Newest</option><option value="created_asc">Oldest</option><option value="due_asc">Due ↑</option><option value="due_desc">Due ↓</option></select>
+    <button id="clear-completed" class="btn danger">Clear Completed</button>
+  </div>
+</section>
+<section class="card list"><h2>Your Tasks</h2><ul id="tasks"></ul><div id="empty" class="empty">No tasks yet. Add one above!</div></section>
+</main>
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+<audio id="ding" preload="auto"></audio>
+<template id="task-tpl">
+<li class="task">
+  <label class="chk"><input type="checkbox" class="done"><span class="box"></span></label>
+  <div class="content">
+    <div class="top"><input class="title"><div class="badges"></div></div>
+    <textarea class="notes"></textarea>
+    <div class="meta">
+      <input type="date" class="due-date">
+      <input type="time" class="due-time">
+      <select class="prio"><option value="low">Low</option><option value="medium">Medium</option><option value="high">High</option></select>
+      <input class="tags" placeholder="tags, comma,separated">
+      <select class="remind"><option value="0">No</option><option value="0">At</option><option value="5">5m</option><option value="10">10m</option><option value="30">30m</option></select>
+      <button class="btn save">Save</button><button class="btn danger del">Delete</button>
+    </div>
+  </div>
+</li>
+</template>
+<script src="app.js"></script>
+</body></html>

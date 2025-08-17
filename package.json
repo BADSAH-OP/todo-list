@@ -1,0 +1,15 @@
+{
+  "name": "turbo-todo-full",
+  "version": "3.0.0",
+  "description": "Enhanced Turbo To-Do (HTML/CSS/JS + Node.js + SQLite + Reminders)",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "NODE_ENV=development node server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "sqlite3": "^5.1.7"
+  }
+}
